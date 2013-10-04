@@ -64,7 +64,12 @@ exports.oauth_callback = function(req, res) {
         console.log(error);
         res.render('error')
 	  }
-	  res.render('success');
+	  else {
+		  // store the access token
+		  req.session.oauthAccessToken = oauthAccessToken;
+		  req.session.oauthAccessTokenSecret = oauthAccessTokenSecret;
+		  res.render('success');
+	  }	  
     });
 };
 

@@ -62,7 +62,7 @@ exports.oauth_callback = function(req, res) {
       if(error) {
         console.log('error');
         console.log(error);
-        res.render('error')
+        res.render(error.data)
 	  }
 	  else {
 		  // store the access token

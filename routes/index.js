@@ -62,18 +62,9 @@ exports.oauth_callback = function(req, res) {
       if(error) {
         console.log('error');
         console.log(error);
-        res.redirect('/');
-      } else {
-        // store the access token in the session
-        req.session.oauthAccessToken = oauthAccessToken;
-        req.session.oauthAccessTtokenSecret = oauthAccessTokenSecret;
-        req.session.edamShard = results.edam_shard;
-        req.session.edamUserId = results.edam_userId;
-        req.session.edamExpires = results.edam_expires;
-        req.session.edamNoteStoreUrl = results.edam_noteStoreUrl;
-        req.session.edamWebApiUrlPrefix = results.edam_webApiUrlPrefix;
-        res.redirect('/');
-      }
+        res.render('error')
+	  }
+	  res.render('success');
     });
 };
 

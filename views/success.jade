@@ -4,11 +4,5 @@ html
     title Omninote redirect page
   body
     h1 Authentification success!
-    h3 Token Credentials:
-    ul
-      li
-        b token:  
-        = session.oauthAccessToken
-      li
-        b secret:  
-        = session.oauthAccessTokenSecret
+	#access_token
+	  session.oauthAccessToken

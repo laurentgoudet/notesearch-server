@@ -36,6 +36,8 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/oauth', routes.oauth);
 app.get('/oauth_callback', routes.oauth_callback);
+app.get('/success', routes.success);
+app.get('/error', routes.error);
 app.get('/clear', routes.clear);
 
 // Run

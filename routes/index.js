@@ -62,15 +62,20 @@ exports.oauth_callback = function(req, res) {
       if(error) {
         console.log('error');
         console.log(error);
-        res.render(error.data)
+        res.render('/error?error_code=' + error.code)
 	  }
 	  else {
-		  // store the access token
-		  req.session.oauthAccessToken = oauthAccessToken;
-		  req.session.oauthAccessTokenSecret = oauthAccessTokenSecret;
-		  res.render('success');
+		  res.redirect('/success?access_token=' + oauthAccessToken);
 	  }	  
     });
+};
+
+exports.success = function(req, res) {
+	res.render('success')
+};
+
+exports.error = function(req, res) {
+	res.render('error')
 };
 
 // Clear session

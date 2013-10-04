@@ -62,10 +62,10 @@ exports.oauth_callback = function(req, res) {
       if(error) {
         console.log('error');
         console.log(error);
-        res.render('/error?error_code=' + error.code)
+        res.render('/error#' + error.code)
 	  }
 	  else {
-		  res.redirect('/success?access_token=' + oauthAccessToken);
+		  res.redirect('/success#' + oauthAccessToken);
 	  }	  
     });
 };

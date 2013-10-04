@@ -1,6 +1,6 @@
 {
-  "name": "evernote-sdk-sample-node",
-  "description": "Evernote SDK sample for Node.js",
+  "name": "omninote-server-app",
+  "description": "Omninote server apps",
   "version": "0.0.1",
   "private": true,
   "scripts": {

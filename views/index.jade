@@ -1,106 +1,30 @@
 extends layout
 
 block content
-  h1 Evernote Node.js Express Demoextends layout
-
-block content
-  h1 Evernote Node.js Express Demo
+  <a href="https://github.com/laurentgoudet/omninote"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  img#icon(href="icon128-green.png")
+  h1 OmniNote: Chrome Omnibox  + Evernote® 
   p
-    | This application uses the 
-    a(href='http://expressjs.com/') Express
-    |  framework to demonstrate the use of OAuth to authenticate to the Evernote web service.
+    | OmniNote lets you quickly search and access your notes stored in Evernote® directly from Chrome's Omnibox (search bar).
   hr
-  - if(session.error)
-    h2 Error
-    p
-      = session.error
-  h2 Authentication
-  - if(session.oauthAccessToken)
-    a(href='/clear') Click here
-    |  to 
-    | start over
-  - else
-    a(href='/oauth') Click here
-    |  to 
-    | connect Evernote
-
-  hr
-  - if(session.notebooks)
-    h2 Notebooks
-    ul
-      - for (var i = 0; i < session.notebooks.length; ++i)
-        li= session.notebooks[i].name
-    hr
-  h2 Current status
-  ul
-    li
-      b NoteStore URL:  
-      = session.edamNoteStoreUrl
-    li
-      b Web API URL prefix: 
-      = session.edamNoteStoreUrl
-  h3 Token Credentials:
-  ul
-    li
-      b token:  
-      = session.oauthAccessToken
-    li
-      b secret:  
-      = session.oauthAccessTokenSecret
-    li
-      b User ID:  
-      = session.edamUserId
-    li
-      b Expires:  
-      = session.edamExpires
-    
-
+  h3 Where to get it?
   p
-    | This application uses the 
-    a(href='http://expressjs.com/') Express
-    |  framework to demonstrate the use of OAuth to authenticate to the Evernote web service.
-  hr
-  - if(session.error)
-    h2 Error
-    p
-      = session.error
-  h2 Authentication
-  - if(session.oauthAccessToken)
-    a(href='/clear') Click here
-    |  to 
-    | start over
-  - else
-    a(href='/oauth') Click here
-    |  to 
-    | connect Evernote
-
-  hr
-  - if(session.notebooks)
-    h2 Notebooks
-    ul
-      - for (var i = 0; i < session.notebooks.length; ++i)
-        li= session.notebooks[i].name
-    hr
-  h2 Current status
-  ul
-    li
-      b NoteStore URL:  
-      = session.edamNoteStoreUrl
-    li
-      b Web API URL prefix: 
-      = session.edamNoteStoreUrl
-  h3 Token Credentials:
-  ul
-    li
-      b token:  
-      = session.oauthAccessToken
-    li
-      b secret:  
-      = session.oauthAccessTokenSecret
-    li
-      b User ID:  
-      = session.edamUserId
-    li
-      b Expires:  
-      = session.edamExpires
-    
+    | OmniNote can be downloaded from the Chrome web store: 
+    a(href="#") OmniNote
+  h3 How to use it?
+  p
+    | Simply enter 'note' in Chrome's address bar (use CTRL+L or CMD+L to quickly reach it) and press the TAB key.
+  h3 Great! But can you add this yet-another-awesome feature?
+  p
+    | If you know how to code, feel free to 
+    a(href="#") Do It Yourself
+    |  and send me a pull request on GitHub.
+    br
+    | If you don't know how to code, please learn. It's never too late, and trust me it's going to become an vital skill in a near future.
+    br
+    | If your just lazy, feel free to submit a feature request on the GitHub tracker. With a little luck and a lot of money, maybe someone will do it for you.
+  h3 I have to much free time. Any suggestion?
+  p
+    | Feel free to read 
+    a(href="http://laurentgoudet.com") my blog
+    |  to learn useless things about computers and watch see pretending to be a photograph. I know, I missed my career.

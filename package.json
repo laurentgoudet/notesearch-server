@@ -1,6 +1,6 @@
 {
-  "name": "omninote-server-app",
-  "description": "Omninote server apps",
+  "name": "omninote",
+  "description": "Remote OAuth flow for OmniNote Chrome extension",
   "version": "0.0.1",
   "private": true,
   "scripts": {

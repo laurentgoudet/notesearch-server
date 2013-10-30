@@ -1,7 +1,7 @@
 var Evernote = require('evernote').Evernote;
 
 var config = require('../config.json');
-var callbackUrl = "http://omninote.laurentgoudet.com/oauth_callback";
+var callbackUrl = "http://notesearch.laurentgoudet.com/oauth_callback";
 
 // home page
 exports.index = function(req, res) {

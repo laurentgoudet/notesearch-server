@@ -38,7 +38,6 @@ app.get('/oauth', routes.oauth);
 app.get('/oauth_callback', routes.oauth_callback);
 app.get('/success', routes.success);
 app.get('/error', routes.error);
-app.get('/clear', routes.clear);
 
 // Run
 http.createServer(app).listen(app.get('port'), function(){

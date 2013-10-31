@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1 Error
-    
+  h1 Hum... something bad happened!
+  p
+   | Click 
+   a(href='/oauth') here
+   |  to try again. Maybe this time it will work
+  p
+   | Still not working? Please go 
+   a(href='https://github.com/laurentgoudet/notesearch/issues') there
+   |  to report the issue.
+  if(session.error)
+   p
+    | Nasty details: status 
+    = session.error.statusCode

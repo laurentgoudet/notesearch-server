@@ -5,20 +5,7 @@ var callbackUrl = "https://notesearch.laurentgoudet.com/oauth_callback";
 
 // home page
 exports.index = function(req, res) {
-  if(req.session.oauthAccessToken) {
-    var token = req.session.oauthAccessToken;
-    var client = new Evernote.Client({
-      token: token,
-      sandbox: config.SANDBOX
-    });
-    var note_store = client.getNoteStore();
-    note_store.listNotebooks(token, function(notebooks){
-      req.session.notebooks = notebooks;
-      res.render('index');
-    });
-  } else {
-    res.render('index');
-  }
+  res.render('index');
 };
 
 // OAuth
@@ -32,7 +19,7 @@ exports.oauth = function(req, res) {
   client.getRequestToken(callbackUrl, function(error, oauthToken, oauthTokenSecret, results){
     if(error) {
       req.session.error = JSON.stringify(error);
-      res.redirect('/');
+      res.redirect('/error');
     }
     else { 
       // store the tokens in the session
@@ -62,7 +49,8 @@ exports.oauth_callback = function(req, res) {
       if(error) {
         console.log('error');
         console.log(error);
-        res.render('/error#' + error.code)
+        req.session.error = error;
+        res.redirect('/error#' + error.statusCode);
 	  }
 	  else {
 		  res.redirect('/success#' + oauthAccessToken);
@@ -72,14 +60,11 @@ exports.oauth_callback = function(req, res) {
 
 exports.success = function(req, res) {
 	res.render('success')
+  req.session.destroy();
 };
 
 exports.error = function(req, res) {
 	res.render('error')
+  req.session.destroy();
 };
 
-// Clear session
-exports.clear = function(req, res) {
-  req.session.destroy();
-  res.redirect('/');
-};

@@ -1,9 +1,4 @@
-doctype 5
-html
-  head
-    title NoteSearch redirect page
-  body
-    | Authentification success!
-    #access_token
-      = session.oauthAccessToken
+extends layout
 
+block content
+  h1 Authentification success!

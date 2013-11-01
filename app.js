@@ -6,6 +6,8 @@ var express = require('express'),
 
 var app = express();
 
+var config = require('./config.json');
+
 // Configurations
 app.configure(function(){
   app.enable('trust proxy');
@@ -16,8 +18,8 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('secret'));
-  app.use(express.session());
+  app.use(express.cookieParser());
+  app.use(express.cookieSession({ secret: config.COOKIE_SECRET}));
   app.use(function(req, res, next) {
     res.locals.session = req.session;
     next();

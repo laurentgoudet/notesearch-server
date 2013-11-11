@@ -60,11 +60,11 @@ exports.oauth_callback = function(req, res) {
 
 exports.success = function(req, res) {
 	res.render('success')
-  req.session.destroy();
+  req.session = null;
 };
 
 exports.error = function(req, res) {
 	res.render('error')
-  req.session.destroy();
+  req.session = null;
 };
 
